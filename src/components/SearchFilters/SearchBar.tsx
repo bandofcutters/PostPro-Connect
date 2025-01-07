@@ -3,6 +3,8 @@ import { Search } from 'lucide-react';
 import { LocationFilter } from './LocationFilter';
 import { DateFilter } from './DateFilter';
 import { RoleFilter } from './RoleFilter';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
 import { RateRangeFilter } from './RateRangeFilter';
 import { Role } from '../../types';
 
@@ -30,18 +32,12 @@ export function SearchBar({
   onSearch
 }: SearchBarProps) {
   return (
-    <div className="bg-white rounded-full shadow-lg border border-gray-200">
-      <div className="flex items-stretch h-16">
+    <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-6">
+      <div className="flex items-stretch h-16 mb-6">
         <LocationFilter
           location={location}
           onLocationChange={onLocationChange}
-        />
-        
-        <DateFilter
-          dateRange={dateRange}
-          onDateRangeChange={onDateRangeChange}
-        />
-        
+        />        
         <RoleFilter
           selectedRole={selectedRole}
           onRoleChange={onRoleChange}
@@ -51,16 +47,27 @@ export function SearchBar({
           rate={rate}
           onChange={onRateChange}
         />
+      </div>
 
-        <div className="px-6 flex items-center">
-          <button
-            onClick={onSearch}
-            className="bg-[#FF385C] hover:bg-[#E31C5F] text-white px-6 py-2.5 rounded-full flex items-center gap-2 transition-colors"
-          >
-            <Search className="w-4 h-4" />
-            <span>Search</span>
-          </button>
-        </div>
+      <div className="border-t border-gray-200 pt-6">
+        <h2 className="text-base font-medium text-gray-700 text-center mb-4">Set a date range you need talent for</h2>
+        <DayPicker
+          mode="range"
+          selected={dateRange}
+          onSelect={onDateRangeChange}
+          numberOfMonths={2}
+          className="mx-auto"
+        />
+      </div>
+      
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={onSearch}
+          className="bg-[#FF385C] hover:bg-[#E31C5F] text-white px-8 py-3 rounded-full flex items-center gap-2 transition-colors text-lg"
+        >
+          <Search className="w-5 h-5" />
+          <span>Search Professionals</span>
+        </button>
       </div>
     </div>
   );

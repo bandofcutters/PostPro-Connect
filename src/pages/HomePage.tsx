@@ -2,7 +2,9 @@ import React from 'react';
 import { SearchFilters } from '../components/SearchFilters/SearchFilters';
 import { Star, Users, Clock, CheckCircle, Film } from 'lucide-react';
 import { Navbar } from '../components/Navbar';
+import { DayPicker } from 'react-day-picker';
 import { Link } from 'react-router-dom';
+import 'react-day-picker/dist/style.css';
 
 export function HomePage() {
   const [selectedRole, setSelectedRole] = React.useState('');
