@@ -50,7 +50,7 @@ export function SearchBar({
       </div>
 
       <div className="border-t border-gray-200 pt-6">
-        <h2 className="text-base font-medium text-gray-700 text-center mb-4">Set a date range you need talent for</h2>
+        <h2 className="text-base font-medium text-gray-700 text-center mb-4">Set a date range you need talent to be available</h2>
         <DayPicker
           mode="range"
           selected={dateRange}
